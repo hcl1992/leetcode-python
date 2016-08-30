@@ -1,0 +1,12 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        ans=0 #initialize length
+        left=0 #initial last repeating index
+        dict={} #create an empty dictionary
+        for i in range(len(s)):
+            if s[i] in dict and dict[s[i]] >= left:
+                left = dict[s[i]]+1
+                #update the last repeating index
+            dict[s[i]]=i
+            ans=max(ans,i-left+1)
+        return ans
