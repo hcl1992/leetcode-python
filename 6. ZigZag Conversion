@@ -1,4 +1,4 @@
-#
+#reference: https://leetcode.com/discuss/39346/an-accepted-6-line-python-solution
 class Solution(object):
     def convert(self, s, numRows):
         """
