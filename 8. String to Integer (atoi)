@@ -1,0 +1,33 @@
+class Solution(object):
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """
+        INT_MAX = 2**31-1
+        INT_MIN = -2**31
+        s=str.strip() #remove blank space
+        if s == "":
+            return 0
+        n=len(s)
+        i=0
+        num=0
+        sign=1
+        if s[i] == '+':
+            sign=1
+            i+=1
+        elif s[i] == '-':
+            sign=-1
+            i+=1
+        for i in range(i,n):
+            if s[i]<'0' or s[i]>'9':
+                break
+            num=num*10+int(s[i])
+            if num>INT_MAX:
+                break
+        num=num*sign
+        if num<INT_MIN:
+            return INT_MIN
+        if num>INT_MAX:
+            return INT_MAX
+        return num
