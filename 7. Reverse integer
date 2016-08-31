@@ -1,0 +1,22 @@
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x>=0: 
+            sign=1
+        else:
+            sign=-1
+        
+        x=str(abs(x))
+        x=x[::-1]
+        for i in range(len(x)): # deal with zeros at the beginning of an interger
+            if x[i]==0:
+                pass
+            else:
+                break
+        x=int(x[i:len(x)]) 
+        if x>2**31:  #check overflow issue
+            x=0
+        return sign*x
