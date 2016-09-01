@@ -1,3 +1,28 @@
+# 1: reverse number and compare two numbers
+import math as m
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x<0:
+            return False
+        count = 0
+        temp = x
+        for i in range(1,100):
+            if x/(10**i)<1:
+                digit = i
+                break
+        for i in range(digit):
+            count += m.floor(x/(10**(digit-1-i)))*10**i
+            x=x-(m.floor(x/(10**(digit-1-i))))*10**(digit-1-i)
+        if temp == count:
+            return True
+        else:
+            return False
+
+#2: compare digit by digit
 class Solution(object):
     def isPalindrome(self, x):
         """
